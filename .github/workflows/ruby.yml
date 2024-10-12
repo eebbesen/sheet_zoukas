@@ -5,6 +5,7 @@ name: Ruby
 
 on:
   push:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -15,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: '3.0'
+        ruby-version: ['3.0']
 
     steps:
     - uses: actions/checkout@v4
