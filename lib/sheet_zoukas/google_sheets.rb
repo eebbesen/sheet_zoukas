@@ -12,22 +12,18 @@ module SheetZoukas
       @authorizer = Google::Auth::ServiceAccountCredentials.from_env(scope: scope)
     end
 
-    def retrieve_sheet(sheet_id, range, tab_name)
+    def retrieve_sheet(sheet_id, tab_name, range = nil)
       sheets = Google::Apis::SheetsV4::SheetsService.new
       sheets.authorization = @authorizer
 
-      computed_range = create_range(range, tab_name)
+      computed_range = SheetZoukas::GoogleSheets.send :create_range, tab_name, range
       sheets.get_spreadsheet_values(sheet_id, computed_range)
     end
 
-    class << self
-      private
+    private_class_method def self.create_range(tab_name, range = nil)
+      return tab_name unless range
 
-      def create_range(range, tab_name = nil)
-        return range unless tab_name
-
-        "#{tab_name}!#{range}"
-      end
+      "#{tab_name}!#{range}"
     end
   end
 end

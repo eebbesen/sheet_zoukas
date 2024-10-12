@@ -2,6 +2,10 @@
 
 require 'sheet_zoukas'
 require 'simplecov'
+require 'vcr'
+require 'webmock/rspec'
+
+require 'byebug'
 
 SimpleCov.start do
   enable_coverage :branch
@@ -17,4 +21,11 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+  config.filter_sensitive_data('<GOOGLE_API_KEY>') { ENV.fetch('GOOGLE_API_KEY', nil) }
+  config.filter_sensitive_data('<SPREADSHEET_ID>') { ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil) }
 end
