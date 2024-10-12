@@ -6,7 +6,7 @@ require 'googleauth'
 module SheetZoukas
   # Interact with Google Sheets API
   class GoogleSheets
-    DEFAULT_SCOPE = 'https://www.googleapis.com/auth/drive.readonly'
+    DEFAULT_SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 
     def initialize(scope = DEFAULT_SCOPE)
       @authorizer = Google::Auth::ServiceAccountCredentials.from_env(scope: scope)
