@@ -2,7 +2,7 @@
 
 RSpec.describe SheetZoukas do
   it 'has a version number' do
-    expect(SheetZoukas::VERSION).not_to be nil
+    expect(SheetZoukas::VERSION).not_to be_nil
   end
 
   # it 'does something useful' do
