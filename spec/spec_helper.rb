@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require 'sheet_zoukas'
+require 'simplecov'
+
+SimpleCov.start do
+  enable_coverage :branch
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
