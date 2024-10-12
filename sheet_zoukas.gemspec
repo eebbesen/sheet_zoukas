@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = 'Expose Google Sheets as JSON'
   spec.homepage = 'https://github.com/eebbesen/sheet_zoukas'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 2.6'
 
   spec.metadata = {
     'homepage_uri' => 'https://github.com/eebbesen/sheet_zoukas',
