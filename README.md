@@ -1,6 +1,6 @@
 # SheetZoukas
 
-Expose Google Sheets as JSON.
+Expose Google Sheets as JSON data
 
 ![Tests](https://github.com/eebbesen/sheet_zoukas/actions/workflows/ruby.yml/badge.svg)
 
@@ -18,6 +18,9 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+Expose Google Sheets as JSON data.
+
+Created to allow Google Sheets to be used as read-only databases. Associates each row's values with the corresponding header ("row") name.
 
 ## Development
 
