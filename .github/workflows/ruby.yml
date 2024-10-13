@@ -25,6 +25,10 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Run RuboCop
+      run: bundle exec rubocop
+    - name: Run Bundler Audit
+      run: bundle exec bundle-audit check --update
     - name: Run tests
       env:
         GOOGLE_ACCOUNT_TYPE: ${{ secrets.GOOGLE_ACCOUNT_TYPE }}
@@ -34,5 +38,3 @@ jobs:
         GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
         GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
       run: bundle exec rake spec
-    - name: Run RuboCop
-      run: bundle exec rubocop
