@@ -13,6 +13,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'byebug', require: false
   gem 'rspec', require: false
   gem 'simplecov', require: false
+  gem 'vcr', require: false
+  gem 'webmock', require: false
 end
