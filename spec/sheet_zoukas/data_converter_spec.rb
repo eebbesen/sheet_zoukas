@@ -61,4 +61,20 @@ RSpec.describe SheetZoukas::DataConverter do
       expect(dc.instance_variable_get(:@headers)).to eq([])
     end
   end
+
+  describe('#init_rows') do
+    it 'initializes rows' do
+      dc = described_class.new(DATA)
+      dc.send :init_rows
+
+      expect(dc.instance_variable_get(:@rows)).to eq(DATA[1..])
+    end
+
+    it 'handles empty sheet' do
+      dc = described_class.new([[], [], []])
+      dc.send :init_rows
+
+      expect(dc.instance_variable_get(:@rows)).to eq([[], []])
+    end
+  end
 end

@@ -12,5 +12,9 @@ module SheetZoukas
     def init_headers
       @headers = @data[0]
     end
+
+    def init_rows
+      @rows = @data[1..]
+    end
   end
 end
