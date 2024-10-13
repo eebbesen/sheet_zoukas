@@ -31,18 +31,20 @@ VCR.configure do |config|
   config.filter_sensitive_data('<SPREADSHEET_ID>') { ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil) }
 end
 
-def check_vars
-  %w[GOOGLE_ACCOUNT_TYPE GOOGLE_API_KEY GOOGLE_CLIENT_EMAIL GOOGLE_CLIENT_ID GOOGLE_PRIVATE_KEY
-     GOOGLE_API_SPREADSHEET_ID].each do |var|
-    val = ENV.fetch(var, nil)&.chars
-    if val
-      puts "#{var}: #{val[0..3].join}...#{val[-3..].join}"
-      next
-    end
+REQUIRED_VARS = %w[GOOGLE_ACCOUNT_TYPE GOOGLE_API_KEY GOOGLE_CLIENT_EMAIL GOOGLE_CLIENT_ID GOOGLE_PRIVATE_KEY
+                   GOOGLE_API_SPREADSHEET_ID].freeze
 
-    puts "Environment variable #{var} required for the tests to run."
-    exit 1
+def check_vars
+  err = false
+  REQUIRED_VARS.each do |var|
+    if ENV.fetch(var, nil)&.chars
+      puts "✅ #{var}"
+    else
+      err = true
+      puts "⛔️ #{var} required for tests to run."
+    end
   end
+  exit 1 if err
 end
 
 check_vars
