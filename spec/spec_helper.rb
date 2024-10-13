@@ -30,3 +30,16 @@ VCR.configure do |config|
   config.filter_sensitive_data('<GOOGLE_API_KEY>') { ENV.fetch('GOOGLE_API_KEY', nil) }
   config.filter_sensitive_data('<SPREADSHEET_ID>') { ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil) }
 end
+
+def check_vars
+  %w[GOOGLE_ACCOUNT_TYPE GOOGLE_API_KEY GOOGLE_CLIENT_EMAIL GOOGLE_CLIENT_ID GOOGLE_PRIVATE_KEY].each do |var|
+    next if ENV.fetch(var, nil)
+
+    puts '----------------------------------------------------------------'
+    puts "Please set the #{var} environment variable for the tests to run."
+    puts '----------------------------------------------------------------'
+    exit 1
+  end
+end
+
+check_vars
