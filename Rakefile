@@ -10,3 +10,7 @@ require 'rubocop/rake_task'
 RuboCop::RakeTask.new
 
 task default: %i[spec rubocop]
+
+require 'bundler/audit/task'
+
+Bundler::Audit::Task.new
