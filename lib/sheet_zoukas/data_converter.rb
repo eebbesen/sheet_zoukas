@@ -7,6 +7,15 @@ module SheetZoukas
       @data = data
     end
 
+    def convert
+      init_headers
+      init_rows
+
+      @rows.map do |row|
+        @headers.zip(row).to_h
+      end
+    end
+
     private
 
     def init_headers
