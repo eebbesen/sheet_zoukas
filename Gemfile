@@ -13,7 +13,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'bundler-audit', require: false
+  gem 'bundle-audit', require: false
   gem 'byebug', require: false
   gem 'rspec', require: false
   gem 'simplecov', require: false

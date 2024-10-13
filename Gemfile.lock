@@ -12,6 +12,8 @@ GEM
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
+    bundle-audit (0.1.0)
+      bundler-audit
     bundler-audit (0.9.2)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -133,7 +135,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler-audit
+  bundle-audit
   byebug
   rake (~> 13.0)
   rspec
