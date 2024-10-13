@@ -2,6 +2,10 @@
 
 Expose Google Sheets as JSON.
 
+![Tests](https://github.com/eebbesen/sheet_zoukas/actions/workflows/ruby.yml/badge.svg)
+
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
