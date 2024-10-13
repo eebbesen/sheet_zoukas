@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable RSpec/ExampleLength
-
 require 'spec_helper'
 require 'sheet_zoukas/data_converter'
 
@@ -83,7 +81,7 @@ RSpec.describe SheetZoukas::DataConverter do
   end
 
   describe '#convert' do
-    it 'converts data' do
+    it 'converts data' do # rubocop:disable RSpec/ExampleLength
       dc = described_class.new(DATA)
       ret = dc.convert
 
@@ -126,5 +124,3 @@ RSpec.describe SheetZoukas::DataConverter do
     end
   end
 end
-
-# rubocop:enable RSpec/ExampleLength
