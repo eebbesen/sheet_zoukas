@@ -6,7 +6,7 @@ Expose Google Sheets as JSON data
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
-Created to allow Google Sheets to be used as read-only databases. Associates each row's values with the corresponding header ("row") name.
+Created to allow Google Sheets to be used as read-only databases. Associates each row's values with the corresponding header ("column") name.
 
 ## Installation
 
