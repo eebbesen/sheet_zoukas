@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['eebbesen']
   spec.email = ['eebbesen.git@gmail.com']
 
-  spec.summary = 'Expose Google Sheets as JSON'
-  spec.description = 'Expose Google Sheets as JSON'
+  spec.summary = 'Expose Google Sheets as JSON data'
+  spec.description = 'Expose Google Sheets as JSON data'
   spec.homepage = 'https://github.com/eebbesen/sheet_zoukas'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'

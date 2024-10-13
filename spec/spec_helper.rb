@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require 'sheet_zoukas'
 require 'simplecov'
-require 'vcr'
-require 'webmock/rspec'
-
-require 'byebug'
-
 SimpleCov.start do
   enable_coverage :branch
   add_filter 'spec/'
 end
+
+require 'byebug'
+require 'sheet_zoukas'
+require 'vcr'
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
