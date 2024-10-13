@@ -57,6 +57,20 @@ GitHub Action runs
 
 RSpec tests require the environment variables listed in spec_helper.rb's `REQUIRED_VARS` constant. Out of the box your tests that call Google (mocked with VCR) will fail because you do (should) not have access to my test account credentials.
 
+## Release
+Build
+    $ rake build
+
+Test
+    $ gem install pkg/sheet_zoukas-<VERSION>.gem
+    $ irb
+
+    irb(main):001> require 'sheet_zoukas'
+    irb(main):002> SheetZoukas.retrieve_sheet_json('<GOOGLE_SPREADSHEET_ID>', '<TAB_NAME>')
+
+Release
+    $ rake release
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/eebbesen/sheet_zoukas.
