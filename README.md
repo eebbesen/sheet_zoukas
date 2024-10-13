@@ -22,6 +22,13 @@ Expose Google Sheets as JSON data.
 
 Created to allow Google Sheets to be used as read-only databases. Associates each row's values with the corresponding header ("row") name.
 
+### Notes
+* All data exposed as Strings. You can convert data to other types as you ingest this gem's output.
+* All data is exposed as the display value
+    * This impacts dates. For example, if your spreadsheet does not display the year as part of a date, this gem will not include a year in it's output for those cells.
+* No `nil` values, just empty Strings. You can convert empty strings to `nil` as you ingest this gem's output.
+* Row values outside of header range will not be captured. You must have a non-blank header for the row data to be included in this gem's output.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

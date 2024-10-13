@@ -5,6 +5,8 @@
 require 'spec_helper'
 require 'sheet_zoukas/data_converter'
 
+# First non-header row has values with no corresponding header.
+#  Row data without a corresponding header is ignored.
 DATA = [
   ['Place',
    'Deal',
