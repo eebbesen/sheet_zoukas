@@ -33,7 +33,12 @@ end
 
 def check_vars
   %w[GOOGLE_ACCOUNT_TYPE GOOGLE_API_KEY GOOGLE_CLIENT_EMAIL GOOGLE_CLIENT_ID GOOGLE_PRIVATE_KEY].each do |var|
-    next if ENV.fetch(var, nil)
+    val = ENV.fetch(var, nil)
+    if val
+      text = val.chars
+      puts "#{var}: #{text[0..3].join}...#{text[-3..].join}"
+      next
+    end
 
     puts '----------------------------------------------------------------'
     puts "Please set the #{var} environment variable for the tests to run."
