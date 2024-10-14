@@ -2,11 +2,16 @@
 
 Expose Google Sheets as JSON data
 
+[![Gem Version](https://badge.fury.io/rb/sheet_zoukas.svg)](https://badge.fury.io/rb/sheet_zoukas)
+
 ![Tests](https://github.com/eebbesen/sheet_zoukas/actions/workflows/ruby.yml/badge.svg)
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 Created to allow Google Sheets to be used as read-only databases. Associates each row's values with the corresponding header ("column") name.
+
+## Why `sheet_zoukas`?
+Questionable portmanteau of [Jason Mantzoukas](https://en.wikipedia.org/wiki/Jason_Mantzoukas) and Google Sheets. Because JSON.
 
 ## Installation
 
@@ -34,10 +39,11 @@ This gem assumes the existence of a [Google service account](https://developers.
 
 
 ### Notes
-* All data exposed as Strings. You can convert data to other types as you ingest this gem's output.
-* All data is exposed as the display value
+* Sheets are accessed with the https://www.googleapis.com/auth/spreadsheets.readonly scope
+* All data exposed as strings. You can convert data to other types as you ingest this gem's output.
+* All data is exposed as the value you see when viewing the sheet
     * This impacts dates. For example, if your spreadsheet does not display the year as part of a date, this gem will not include a year in it's output for those cells.
-* No `nil` values, just empty Strings. You can convert empty strings to `nil` as you ingest this gem's output.
+* No `nil` values, just empty strings. You can convert empty strings to `nil` as you ingest this gem's output.
 * Row values outside of header range will not be captured. You must have a non-blank header for the row data to be included in this gem's output.
 * Performance: this gem has not been tested with large Google Sheets. If you encounter performance issues consider passing in cell ranges to iteratively get your dataset ala pagination.
 
@@ -59,9 +65,11 @@ RSpec tests require the environment variables listed in spec_helper.rb's `REQUIR
 
 ## Release
 Build
+
     $ rake build
 
 Test
+
     $ gem install pkg/sheet_zoukas-<VERSION>.gem
     $ irb
 
@@ -69,6 +77,7 @@ Test
     irb(main):002> SheetZoukas.retrieve_sheet_json('<GOOGLE_SPREADSHEET_ID>', '<TAB_NAME>')
 
 Release
+
     $ rake release
 
 ## Contributing
