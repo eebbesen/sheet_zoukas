@@ -8,10 +8,10 @@ Expose Google Sheets as JSON data
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
-Created to allow Google Sheets to be used as read-only databases. Associates each row's values with the corresponding header ("column") name.
+Created to allow Google Sheets to be used as read-only datastores. Associates each row's values with the corresponding header ("column") name.
 
-## Why `sheet_zoukas`?
-Questionable portmanteau of [Jason Mantzoukas](https://en.wikipedia.org/wiki/Jason_Mantzoukas) and Google Sheets. Because JSON.
+## Why is it called `SheetZoukas`?
+The name is a questionable portmanteau of [Jason Mantzoukas](https://en.wikipedia.org/wiki/Jason_Mantzoukas) and Google Sheets. Because JSON.
 
 ## Installation
 
@@ -29,7 +29,8 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 This gem assumes the existence of a [Google service account](https://developers.google.com/identity/protocols/oauth2/service-account) with [the Google Sheets API](https://console.cloud.google.com/apis/library/sheets.googleapis.com) enabled. Several environment variables are required for this gem to work.
 
-#### Google auth values
+#### Required Google auth variables
+`SheetZoukas::REQUIRED_VARS`
 
 * GOOGLE_ACCOUNT_TYPE
 * GOOGLE_API_KEY
@@ -61,7 +62,7 @@ GitHub Action runs
 
 ### testing
 
-RSpec tests require the environment variables listed in spec_helper.rb's `REQUIRED_VARS` constant. Out of the box your tests that call Google (mocked with VCR) will fail because you do (should) not have access to my test account credentials.
+RSpec tests require the environment variables checked in [spec_helper.rb](spec/spec_helper.rb). Out of the box your tests that call Google (mocked with VCR) will fail because you do (should) not have access to my test account credentials.
 
 ## Release
 Build
