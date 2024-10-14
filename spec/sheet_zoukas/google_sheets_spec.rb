@@ -4,6 +4,8 @@ require 'spec_helper'
 require 'sheet_zoukas/google_sheets'
 
 RSpec.describe SheetZoukas::GoogleSheets do
+  before { ENV.store('GOOGLE_API_SPREADSHEET_ID_TEST', 'test_id') }
+
   describe '#initialize' do
     it 'uses default scope' do
       ret = described_class.new.instance_variable_get(:@authorizer).scope
@@ -32,14 +34,14 @@ RSpec.describe SheetZoukas::GoogleSheets do
   describe '#retrieve_sheet' do
     it 'retrieves sheet with range' do
       VCR.use_cassette('get_spreadsheet_values_range') do
-        sheet = described_class.new.retrieve_sheet(ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil), 'Log', 'A:Z')
+        sheet = described_class.new.retrieve_sheet(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log', 'A:Z')
         expect(sheet.values.first).to include('Reward Type')
       end
     end
 
     it 'retrieves sheet without range' do
       VCR.use_cassette('get_spreadsheet_values_no_range') do
-        sheet = described_class.new.retrieve_sheet(ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil), 'Log')
+        sheet = described_class.new.retrieve_sheet(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log')
         expect(sheet.values.first).to include('Reward Type')
       end
     end

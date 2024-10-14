@@ -6,9 +6,11 @@ RSpec.describe SheetZoukas do
   end
 
   describe '.retrieve_sheet_json' do
+    before { ENV.store('GOOGLE_API_SPREADSHEET_ID_TEST', 'test_id') }
+
     it 'retrieves sheet data' do # rubocop:disable RSpec/ExampleLength
       VCR.use_cassette('retrieve_sheet_json') do
-        data = described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil), 'Log')
+        data = described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log')
         expect(data[0]).to eq('Place' => 'Slice Brothers',
                               'Deal' => '2 slices for $5.99',
                               'Deal Earned' => '',
@@ -26,9 +28,9 @@ RSpec.describe SheetZoukas do
       ENV.delete(missing)
       expect do
         expect do
-          described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil), 'Log')
-        end.to raise_error(SystemExit) do |error| # rubocop:disable Style/MultilineBlockChain
-          expect(error.status).to eq(1)
+          described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log')
+        end.to raise_error(StandardError) do |error| # rubocop:disable Style/MultilineBlockChain
+          expect(error.message).to eq('Error encountered')
         end
       end.to output("⛔️ #{missing} required for Google Sheets API calls.\n").to_stdout
     end

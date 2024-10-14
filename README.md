@@ -62,7 +62,7 @@ GitHub Action runs
 
 ### testing
 
-RSpec tests require the environment variables checked in [spec_helper.rb](spec/spec_helper.rb). Out of the box your tests that call Google (mocked with VCR) will fail because you do (should) not have access to my test account credentials.
+    $ rake spec
 
 ## Release
 Build
