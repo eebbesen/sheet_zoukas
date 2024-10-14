@@ -39,8 +39,9 @@ This gem assumes the existence of a [Google service account](https://developers.
 
 
 ### Notes
+* Sheets are accessed with the https://www.googleapis.com/auth/spreadsheets.readonly scope
 * All data exposed as strings. You can convert data to other types as you ingest this gem's output.
-* All data is exposed as the display value
+* All data is exposed as the value you see when viewing the sheet
     * This impacts dates. For example, if your spreadsheet does not display the year as part of a date, this gem will not include a year in it's output for those cells.
 * No `nil` values, just empty strings. You can convert empty strings to `nil` as you ingest this gem's output.
 * Row values outside of header range will not be captured. You must have a non-blank header for the row data to be included in this gem's output.
@@ -64,9 +65,11 @@ RSpec tests require the environment variables listed in spec_helper.rb's `REQUIR
 
 ## Release
 Build
+
     $ rake build
 
 Test
+
     $ gem install pkg/sheet_zoukas-<VERSION>.gem
     $ irb
 
@@ -74,6 +77,7 @@ Test
     irb(main):002> SheetZoukas.retrieve_sheet_json('<GOOGLE_SPREADSHEET_ID>', '<TAB_NAME>')
 
 Release
+
     $ rake release
 
 ## Contributing
