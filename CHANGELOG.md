@@ -1,3 +1,7 @@
 ## [0.1.0] - 2024-10-13
 
 - Initial release v0.1.0
+
+## [0.2.0] - UNRELEASED
+
+- Added check for required environment variables before call to Google Sheets API
