@@ -2,6 +2,8 @@
 
 Expose Google Sheets as JSON data
 
+[![Gem Version](https://badge.fury.io/rb/sheet_zoukas.svg)](https://badge.fury.io/rb/sheet_zoukas)
+
 ![Tests](https://github.com/eebbesen/sheet_zoukas/actions/workflows/ruby.yml/badge.svg)
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
