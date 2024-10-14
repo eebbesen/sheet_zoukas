@@ -20,5 +20,17 @@ RSpec.describe SheetZoukas do
                               'Reward Type' => 'no longer active')
       end
     end
+
+    it 'fails when missing required environment variable' do # rubocop:disable RSpec/ExampleLength, RSpec/MultipleExpectations
+      missing = SheetZoukas::REQUIRED_VARS.first
+      ENV.delete(missing)
+      expect do
+        expect do
+          described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil), 'Log')
+        end.to raise_error(SystemExit) do |error| # rubocop:disable Style/MultilineBlockChain
+          expect(error.status).to eq(1)
+        end
+      end.to output("⛔️ #{missing} required for Google Sheets API calls.\n").to_stdout
+    end
   end
 end
