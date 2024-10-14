@@ -9,7 +9,7 @@ module SheetZoukas
     DEFAULT_SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 
     def initialize(scope = DEFAULT_SCOPE)
-      @authorizer = Google::Auth::ServiceAccountCredentials.from_env(scope: scope)
+      init_authorizer(scope)
     end
 
     def retrieve_sheet(sheet_id, tab_name, range = nil)
@@ -24,6 +24,13 @@ module SheetZoukas
       return tab_name unless range
 
       "#{tab_name}!#{range}"
+    end
+
+    private
+
+    # overriden in spec_helper since we don't try to authenticate with Google for tests
+    def init_authorizer(scope)
+      @authorizer = Google::Auth::ServiceAccountCredentials.from_env(scope: scope)
     end
   end
 end

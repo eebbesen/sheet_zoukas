@@ -26,11 +26,18 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
-  config.filter_sensitive_data('<GOOGLE_API_KEY>') { ENV.fetch('GOOGLE_API_KEY', nil) }
-  config.filter_sensitive_data('<SPREADSHEET_ID>') { ENV.fetch('GOOGLE_API_SPREADSHEET_ID', nil) }
 end
 
-# make sure all vars required for testing are present
-require 'sheet_zoukas/utils'
-REQUIRED_VARS_TEST = (SheetZoukas::REQUIRED_VARS + ['GOOGLE_API_SPREADSHEET_ID']).freeze
-exit 1 unless SheetZoukas::Utils.vars_present?(REQUIRED_VARS_TEST, 'required for tests to run')
+# for testing don't try to authenticate with Google
+module SheetZoukas
+  class GoogleSheets
+    Authorizer = Struct.new(:scope)
+
+    private
+
+    def init_authorizer(scope)
+      scopes = scope.is_a?(Array) ? scope : [scope]
+      @authorizer = Authorizer.new(scopes)
+    end
+  end
+end

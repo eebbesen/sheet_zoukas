@@ -5,7 +5,7 @@ http_interactions:
     uri: https://www.googleapis.com/oauth2/v4/token
     body:
       encoding: ASCII-8BIT
-      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzdHAtZm9vZC1zZXJ2aWNlQHN0cC1mb29kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiZXhwIjoxNzI4NzcyNjE4LCJpYXQiOjE3Mjg3NzI0OTgsInNjb3BlIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC9kcml2ZS5yZWFkb25seSJ9.C7iPR9Lavlv44wtQcNs2orahR_Er7QjjBn7TJTMfd7lI5eE3tRC2ixwuS1oGEXPG1ColjAc3gojKFtJxTJsWUYiCTwdFk1Kx6U8lBJV_sNY8F8Y_LxiDfS8zGPldXJ5RBabHRzJofRfXPOK1q6M8IpPgoK1jV3ilynfnUajlwpmhIcHUOeGmu0h2XxHzcXgKhJFBxVRw5PjOmdC0EOqyGIC6KVu2JJKPDhZ-LE4WCNuiFZIEfNY2huzxKYxhTz-C9dWkmlS2TDeGkWLWsD1QLN3p5D2TCO3V3jmQ3SQpncbSZQ475OcpRdCnAnByo49qVxR8U6lR6XEdqQbwKInibg
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=<ASSERTION>
     headers:
       User-Agent:
       - Faraday v2.12.0
@@ -44,11 +44,11 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"ya29.c.c0ASRK0GYEVGz-_kslN9gKdl0NhSMljNMSKv-F2fBcXarlK3Itsq5TzaHMHf-opp_pMdKmgG5FZp7s3iATwMYaRTjbi50PjyYk17kmZKZPf079yhIw68aqnMLfZ8UeRBHN1Uvby2RXh9ExZjcGWBTQt7tRF0n-nOHwr0e7rnEQuyNeSDHTTvsp7ckSJ6BwnErQUIdI0B6rCU1-V6pl7nlV60rnKg0O23MtYjThWjmtZAdC6OB-DHbfjkrpaFB5ZqhJljDpbDixfVqqiX-W6sv0RXZuaHlR3Z-Soxhk0isUyXZg7fOXm5WlsxleesaaPyOLsGT8YNcuNDNvOcSN14K0dkGY9IXMypt67F9U6bPpSimxFgSebiugVIAN384PakY4_Ut97ol-n4M8m1kbwf5Q5pRwj7S9WWmBZjFi43hsMwiq-RjyZfRc17yQR776Bpnv0sSoZzacZ4tRtfmc4k-uZIXXmeQgyjM4niOW7v2BZ1RyuxcdskmWWgssM1cM18wWecpk4eBoWnwzcx6lZQ0h_aSaJmrFQvMURqwZp1eQg426vyaOs7xw61hF7Se4z5X08laBwZe6lBaXUXdyyRBB8j9eiSsgB9sXBO04sYzUMSVw1qzlc9atWIbczvjupQYpmlysyoz_feviOpjwn1lXU2j6URbmbc1iSBleOwf5nb5W_cveUc7jmkl128-pn6pnl2RS_v3dyyUhV4wj8FBpgvWMyBYRWb3q3WiR820_9c-MiQtBxURos01wYRyXcurulcWatrz_bd6VnOZBjpQRBYdvVyeqWQFpxFjJgyV-J2Xq5jy5eh8a-ahc0tonYr14R37hU7um5wgz31QQhI3c0hVZmzV00-aod0tg53g3BZ01conosyoaZj-axdjsB8zlIcO3dQtvo-xf6igxfbWxOa416vJkI1oSnot0fQeW87qyMW7bofi27MicXgfUIhrkOyVuuR2SOmtRUj_esm_r6O-mW_icS-gpR9uoZ2x1OvegOqmB7XviR1k","expires_in":3599,"token_type":"Bearer"}'
+      string: '{"access_token":"<TOKEN>","expires_in":3599,"token_type":"Bearer"}'
   recorded_at: Sat, 12 Oct 2024 22:35:58 GMT
 - request:
     method: get
-    uri: https://sheets.googleapis.com/v4/spreadsheets/<SPREADSHEET_ID>/values/Log
+    uri: https://sheets.googleapis.com/v4/spreadsheets/test_id/values/Log
     body:
       encoding: UTF-8
       string: ''
@@ -64,7 +64,7 @@ http_interactions:
       X-Goog-Api-Client:
       - gl-ruby/3.3.5 gdcl/1.36.0
       Authorization:
-      - Bearer ya29.c.c0ASRK0GYEVGz-_kslN9gKdl0NhSMljNMSKv-F2fBcXarlK3Itsq5TzaHMHf-opp_pMdKmgG5FZp7s3iATwMYaRTjbi50PjyYk17kmZKZPf079yhIw68aqnMLfZ8UeRBHN1Uvby2RXh9ExZjcGWBTQt7tRF0n-nOHwr0e7rnEQuyNeSDHTTvsp7ckSJ6BwnErQUIdI0B6rCU1-V6pl7nlV60rnKg0O23MtYjThWjmtZAdC6OB-DHbfjkrpaFB5ZqhJljDpbDixfVqqiX-W6sv0RXZuaHlR3Z-Soxhk0isUyXZg7fOXm5WlsxleesaaPyOLsGT8YNcuNDNvOcSN14K0dkGY9IXMypt67F9U6bPpSimxFgSebiugVIAN384PakY4_Ut97ol-n4M8m1kbwf5Q5pRwj7S9WWmBZjFi43hsMwiq-RjyZfRc17yQR776Bpnv0sSoZzacZ4tRtfmc4k-uZIXXmeQgyjM4niOW7v2BZ1RyuxcdskmWWgssM1cM18wWecpk4eBoWnwzcx6lZQ0h_aSaJmrFQvMURqwZp1eQg426vyaOs7xw61hF7Se4z5X08laBwZe6lBaXUXdyyRBB8j9eiSsgB9sXBO04sYzUMSVw1qzlc9atWIbczvjupQYpmlysyoz_feviOpjwn1lXU2j6URbmbc1iSBleOwf5nb5W_cveUc7jmkl128-pn6pnl2RS_v3dyyUhV4wj8FBpgvWMyBYRWb3q3WiR820_9c-MiQtBxURos01wYRyXcurulcWatrz_bd6VnOZBjpQRBYdvVyeqWQFpxFjJgyV-J2Xq5jy5eh8a-ahc0tonYr14R37hU7um5wgz31QQhI3c0hVZmzV00-aod0tg53g3BZ01conosyoaZj-axdjsB8zlIcO3dQtvo-xf6igxfbWxOa416vJkI1oSnot0fQeW87qyMW7bofi27MicXgfUIhrkOyVuuR2SOmtRUj_esm_r6O-mW_icS-gpR9uoZ2x1OvegOqmB7XviR1k
+      - Bearer <TOKEN>
       Content-Type:
       - application/x-www-form-urlencoded
   response:

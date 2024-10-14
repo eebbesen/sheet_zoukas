@@ -48,7 +48,7 @@ http_interactions:
   recorded_at: Sun, 13 Oct 2024 11:03:14 GMT
 - request:
     method: get
-    uri: https://sheets.googleapis.com/v4/spreadsheets/<SPREADSHEET_ID>/values/Log
+    uri: https://sheets.googleapis.com/v4/spreadsheets/test_id/values/Log
     body:
       encoding: UTF-8
       string: ''
