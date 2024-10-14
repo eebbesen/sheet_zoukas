@@ -12,11 +12,16 @@ module SheetZoukas
 
   class << self
     def retrieve_sheet_json(sheet_id, tab_name, range = nil)
-      exit 1 unless SheetZoukas::Utils.vars_present?(REQUIRED_VARS, 'required for Google Sheets API calls')
+      SheetZoukas.exit_program unless SheetZoukas::Utils.vars_present?(REQUIRED_VARS,
+                                                                       'required for Google Sheets API calls')
 
       sheet = GoogleSheets.new
       data = sheet.retrieve_sheet(sheet_id, tab_name, range)
       DataConverter.new(data.values).convert
+    end
+
+    def exit_program
+      exit 1
     end
   end
 end

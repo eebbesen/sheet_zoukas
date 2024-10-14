@@ -28,8 +28,15 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
-# for testing don't try to authenticate with Google
+# initialize required environment variables
+ENV.store('GOOGLE_ACCOUNT_TYPE', 'service_account')
+ENV.store('GOOGLE_API_KEY', 'fake_google_api_key')
+ENV.store('GOOGLE_CLIENT_EMAIL', 'sheet@zoukas.zoukas')
+ENV.store('GOOGLE_CLIENT_ID', 'fake_google_client_id')
+ENV.store('GOOGLE_PRIVATE_KEY', "----BEGIN PRIVATE KEY-----\nfake_google_private_key==\n-----END PRIVATE KEY-----\n")
+
 module SheetZoukas
+  # for testing don't try to authenticate with Google
   class GoogleSheets
     Authorizer = Struct.new(:scope)
 
@@ -39,5 +46,10 @@ module SheetZoukas
       scopes = scope.is_a?(Array) ? scope : [scope]
       @authorizer = Authorizer.new(scopes)
     end
+  end
+
+  # for testing don't actually exit so suite fully runs
+  def self.exit_program
+    raise StandardError, 'Mock exiting program'
   end
 end
