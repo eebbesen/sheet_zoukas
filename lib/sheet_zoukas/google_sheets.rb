@@ -28,7 +28,7 @@ module SheetZoukas
 
     private
 
-    # overriden in spec_helper since we don't try to authenticate with Google for tests
+    # overriden in spec_helper so we don't try to authenticate with Google for tests
     def init_authorizer(scope)
       @authorizer = Google::Auth::ServiceAccountCredentials.from_env(scope: scope)
     end

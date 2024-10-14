@@ -37,6 +37,7 @@ ENV.store('GOOGLE_PRIVATE_KEY', "----BEGIN PRIVATE KEY-----\nfake_google_private
 
 module SheetZoukas
   # for testing don't try to authenticate with Google
+  # will need to remove when recording new VCR cassettes
   class GoogleSheets
     Authorizer = Struct.new(:scope)
 
@@ -46,10 +47,5 @@ module SheetZoukas
       scopes = scope.is_a?(Array) ? scope : [scope]
       @authorizer = Authorizer.new(scopes)
     end
-  end
-
-  # for testing don't actually exit so suite fully runs
-  def self.exit_program
-    raise StandardError, 'Mock exiting program'
   end
 end

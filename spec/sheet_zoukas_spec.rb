@@ -30,7 +30,7 @@ RSpec.describe SheetZoukas do
         expect do
           described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log')
         end.to raise_error(StandardError) do |error| # rubocop:disable Style/MultilineBlockChain
-          expect(error.message).to eq('Mock exiting program')
+          expect(error.message).to eq('Error encountered')
         end
       end.to output("⛔️ #{missing} required for Google Sheets API calls.\n").to_stdout
     end

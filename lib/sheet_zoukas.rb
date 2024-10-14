@@ -21,7 +21,7 @@ module SheetZoukas
     end
 
     def exit_program
-      exit 1
+      raise StandardError, 'Error encountered'
     end
   end
 end
