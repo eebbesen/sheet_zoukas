@@ -11,21 +11,23 @@ RSpec.describe SheetZoukas do
     it 'retrieves sheet data' do # rubocop:disable RSpec/ExampleLength
       VCR.use_cassette('retrieve_sheet_json') do
         data = described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log')
-        expect(data[0]).to eq('Place' => 'Slice Brothers',
-                              'Deal' => '2 slices for $5.99',
-                              'Deal Earned' => '',
-                              'Deal Used' => '03/30',
-                              'Deal Starts' => '',
-                              'Deal Ends' => '',
-                              'Notes' => 'no longer active',
-                              'Money Saved' => '4.99',
-                              'Reward Type' => 'no longer active')
+
+        expect(data).to include({ 'Place' => 'Slice Brothers',
+                                  'Deal' => '2 slices for $5.99',
+                                  'Deal Earned' => '',
+                                  'Deal Used' => '03/30',
+                                  'Deal Starts' => '',
+                                  'Deal Ends' => '',
+                                  'Notes' => 'no longer active',
+                                  'Money Saved' => '4.99',
+                                  'Reward Type' => 'no longer active' }.to_json)
       end
     end
 
     it 'fails when missing required environment variable' do # rubocop:disable RSpec/ExampleLength, RSpec/MultipleExpectations
       missing = SheetZoukas::REQUIRED_VARS.first
       ENV.delete(missing)
+
       expect do
         expect do
           described_class.retrieve_sheet_json(ENV.fetch('GOOGLE_API_SPREADSHEET_ID_TEST', nil), 'Log')
