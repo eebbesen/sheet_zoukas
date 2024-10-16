@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'json'
 require 'spec_helper'
 require 'sheet_zoukas/data_converter'
 
@@ -86,41 +87,41 @@ RSpec.describe SheetZoukas::DataConverter do
       ret = dc.convert
 
       expect(ret).to eq([
-                          { 'Place' => 'Slice Brothers',
-                            'Deal' => '2 slices for $5.99',
-                            'Deal Earned' => '',
-                            'Deal Used' => '03/30/2024',
-                            'Deal Starts' => '',
-                            'Deal Ends' => '',
-                            'Notes' => 'no longer active',
-                            'Money Saved' => '4.99',
-                            'Reward Type' => 'no longer active' },
-                          { 'Place' => 'Slice Brothers',
-                            'Deal' => '2 slices for $5.99',
-                            'Deal Earned' => '',
-                            'Deal Used' => '04/11/2024',
-                            'Deal Starts' => '',
-                            'Deal Ends' => '',
-                            'Notes' => 'no longer active',
-                            'Money Saved' => '4.99',
-                            'Reward Type' => 'no longer active' },
-                          { 'Place' => 'Pot Belly',
-                            'Deal' => '1 free sandwich with the purchase of sandwich between 04/01 and 04/07',
-                            'Deal Earned' => '04/04/2024',
-                            'Deal Used' => '04/08/2024',
-                            'Deal Starts' => '04/01/2024',
-                            'Deal Ends' => '04/07/2024',
-                            'Notes' => '',
-                            'Money Saved' => '10.66',
-                            'Reward Type' => 'rewards' }
-                        ])
+        { 'Place' => 'Slice Brothers',
+          'Deal' => '2 slices for $5.99',
+          'Deal Earned' => '',
+          'Deal Used' => '03/30/2024',
+          'Deal Starts' => '',
+          'Deal Ends' => '',
+          'Notes' => 'no longer active',
+          'Money Saved' => '4.99',
+          'Reward Type' => 'no longer active' },
+        { 'Place' => 'Slice Brothers',
+          'Deal' => '2 slices for $5.99',
+          'Deal Earned' => '',
+          'Deal Used' => '04/11/2024',
+          'Deal Starts' => '',
+          'Deal Ends' => '',
+          'Notes' => 'no longer active',
+          'Money Saved' => '4.99',
+          'Reward Type' => 'no longer active' },
+        { 'Place' => 'Pot Belly',
+          'Deal' => '1 free sandwich with the purchase of sandwich between 04/01 and 04/07',
+          'Deal Earned' => '04/04/2024',
+          'Deal Used' => '04/08/2024',
+          'Deal Starts' => '04/01/2024',
+          'Deal Ends' => '04/07/2024',
+          'Notes' => '',
+          'Money Saved' => '10.66',
+          'Reward Type' => 'rewards' }
+      ].to_json)
     end
 
     it 'handles empty sheet' do
       dc = described_class.new([[], []])
       ret = dc.convert
 
-      expect(ret).to eq([{}])
+      expect(ret).to eq([{}].to_json)
     end
   end
 end

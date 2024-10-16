@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'json'
+
 module SheetZoukas
   # convert spreadsheet data to JSON
   class DataConverter
@@ -13,7 +15,7 @@ module SheetZoukas
 
       @rows.map do |row|
         @headers.zip(row).to_h
-      end
+      end.to_json
     end
 
     private
