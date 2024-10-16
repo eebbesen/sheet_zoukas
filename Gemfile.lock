@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sheet_zoukas (0.2.0)
+    sheet_zoukas (0.3.0)
       google-apis-sheets_v4
 
 GEM

@@ -5,3 +5,7 @@
 ## [0.2.0] - 2024-10-15
 
 - Added check for required environment variables before call to Google Sheets API
+
+## [0.3.0] - 2024-10-16
+
+- Convert Google Sheet contents to JSON, not just to Ruby hash
