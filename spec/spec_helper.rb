@@ -28,7 +28,8 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
-# initialize required environment variables
+# initialize required environment variables to test values
+# will need to comment this out when recording cassettes
 ENV.store('GOOGLE_ACCOUNT_TYPE', 'service_account')
 ENV.store('GOOGLE_API_KEY', 'fake_google_api_key')
 ENV.store('GOOGLE_CLIENT_EMAIL', 'sheet@zoukas.zoukas')
