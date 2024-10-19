@@ -62,6 +62,8 @@ GitHub Action runs
 
 ### testing
 
+Note: When recording VCR cassettes falid environment variables will need to be initialized in spec/spec_helper.rb will need to be uncommented
+
     $ rake spec
 
 ## Release
@@ -69,7 +71,7 @@ Build
 
     $ rake build
 
-Test
+Maual test
 
     $ gem install pkg/sheet_zoukas-<VERSION>.gem
     $ irb
