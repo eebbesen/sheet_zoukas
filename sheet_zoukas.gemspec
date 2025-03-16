@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/eebbesen/sheet_zoukas'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'
+  spec.documentataion = "https://github.com/eebbesen/sheet_zoukas"
 
   spec.metadata = {
     'homepage_uri' => 'https://github.com/eebbesen/sheet_zoukas',
