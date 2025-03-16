@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     'homepage_uri' => 'https://github.com/eebbesen/sheet_zoukas',
     'changelog_uri' => "https://github.com/eebbesen/sheet_zoukas/releases/tag/v#{SheetZoukas::VERSION}",
     'source_code_uri' => 'https://github.com/eebbesen/sheet_zoukas',
-    'documentation_uri' => "https://github.com/eebbesen/sheet_zoukas",
+    'documentation_uri' => 'https://github.com/eebbesen/sheet_zoukas',
     'bug_tracker_uri' => 'https://github.com/eebbesen/sheet_zoukas/issues',
     'rubygems_mfa_required' => 'true'
   }
